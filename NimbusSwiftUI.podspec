@@ -16,4 +16,6 @@ Pod::Spec.new do |spec|
         :git => "https://github.com/adsbynimbus/nimbus-ios-swiftui.git",
         :tag => spec.version.to_s
     }
+
+    spec.dependency 'NimbusSDK/NimbusKit', '~> 3'
 end
