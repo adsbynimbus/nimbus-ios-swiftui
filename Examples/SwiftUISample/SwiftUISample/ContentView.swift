@@ -38,6 +38,8 @@ struct ContentView: View {
                 case .banner:
                     VStack {
                         InlineAdView(ad: Nimbus.bannerAd(position: "banner", size: .banner, refreshInterval: 30))
+                            .onEvent { debugPrint("Banner Event: \($0)") }
+                            .onError { debugPrint("Banner Error: \($0)") }
                             .frame(width: 320, height: 50)
                         Spacer()
                     }
@@ -47,6 +49,8 @@ struct ContentView: View {
                         .navigationTitle("Preloaded Interstitial Ad")
                 case .rewarded:
                     FullscreenAdView(ad: Nimbus.rewardedAd(position: "rewarded"))
+                        .onEvent { debugPrint("Rewarded Event: \($0)") }
+                        .onError { debugPrint("Rewarded Error: \($0)") }
                         .navigationTitle("Rewarded Ad")
                 case .feedBanner:
                     FeedView(

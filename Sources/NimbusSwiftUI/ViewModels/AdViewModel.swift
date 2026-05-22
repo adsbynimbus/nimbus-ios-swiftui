@@ -14,8 +14,8 @@ import NimbusKit
 public class AdViewModel<T: Ad> {
     let ad: T
     
-    @ObservationIgnored var onEvent: ((AdEvent) -> Void)?
-    @ObservationIgnored var onError: ((NimbusError) -> Void)?
+    @ObservationIgnored public var onEvent: ((AdEvent) -> Void)?
+    @ObservationIgnored public var onError: ((NimbusError) -> Void)?
     
     init(ad: T) {
         self.ad = ad

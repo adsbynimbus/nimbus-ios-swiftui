@@ -60,6 +60,9 @@ pod install
 
 ## Usage
 
+> **Important**
+> Set event and error handlers via the `.onEvent`/`.onError` modifiers on `InlineAdView`, `FullscreenAdView`, or `FullscreenAdViewModel` — not directly on the underlying `Ad`. The SwiftUI wrappers attach their own listeners to the ad internally and forward events to your handlers. Setting handlers on the ad directly will be overridden.
+
 ### Inline ads
 
 Use `InlineAdView` to display banner, native, or dynamic-size ad units inline in your layout. The ad is constructed with one of:
@@ -70,6 +73,8 @@ Use `InlineAdView` to display banner, native, or dynamic-size ad units inline in
 
 ```swift
 InlineAdView(ad: Nimbus.bannerAd(position: "banner", size: .banner, refreshInterval: 30))
+    .onEvent { debugPrint("Banner Event: \($0)") }
+    .onError { debugPrint("Banner Error: \($0)") }
     .frame(width: 320, height: 50)
 ```
 
@@ -96,6 +101,8 @@ Adding `FullscreenAdView` to your view body automatically loads and presents the
 
 ```swift
 FullscreenAdView(ad: Nimbus.interstitialAd(position: "interstitial"))
+    .onEvent { debugPrint("Interstitial Event: \($0)") }
+    .onError { debugPrint("Interstitial Error: \($0)") }
 ```
 
 ### Preloading fullscreen ads
@@ -108,6 +115,8 @@ struct InterstitialExample: View {
     
     init(ad: InterstitialAd) {
         self._viewModel = State(wrappedValue: FullscreenAdViewModel(ad: ad))
+        self.viewModel.onEvent = { debugPrint("Event: \($0)") }
+        self.viewModel.onError = { debugPrint("Error: \($0)") }
     }
     
     var body: some View {

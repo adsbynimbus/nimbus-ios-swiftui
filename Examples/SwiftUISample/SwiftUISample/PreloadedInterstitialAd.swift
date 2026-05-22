@@ -14,6 +14,8 @@ struct PreloadedInterstitialAd: View {
     
     init(ad: InterstitialAd) {
         self._viewModel = State(wrappedValue: FullscreenAdViewModel(ad: ad, closeButtonDelay: 7))
+        self.viewModel.onEvent = { debugPrint("Event: \($0)") }
+        self.viewModel.onError = { debugPrint("Error: \($0)") }
     }
     
     var body: some View {
