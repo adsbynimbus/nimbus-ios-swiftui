@@ -156,6 +156,9 @@ struct AdRow: View {
                         auctionID = String(id.prefix(8))
                     }
                 }
+                .onError { error in
+                    debugPrint("Received ad error: \(error.localizedDescription)")
+                }
                 .frame(width: frame.width, height: frame.height)
                 .frame(maxWidth: .infinity)  // center within row
         }
