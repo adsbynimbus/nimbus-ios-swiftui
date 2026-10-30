@@ -1,6 +1,6 @@
 # NimbusSwiftUI
 
-SwiftUI integration for the [Nimbus SDK](https://docs.adsbynimbus.com/docs/sdk/ios). Provides idiomatic SwiftUI views and view models for inline and fullscreen ads.
+SwiftUI integration for the [Nimbus SDK](https://docs.adsbynimbus.com/docs). Provides idiomatic SwiftUI views and view models for inline and fullscreen ads.
 
 ## Contents
 
@@ -175,5 +175,5 @@ A complete sample app demonstrating every integration pattern lives in the [`Exa
 
 ## Documentation
 
-- [Nimbus iOS SDK Documentation](https://docs.adsbynimbus.com/docs/sdk/ios) — integration guides, configuration, and API reference.
+- [Nimbus iOS SDK Documentation](https://docs.adsbynimbus.com/docs) — integration guides, configuration, and API reference.
 - [DocC API Reference](https://iosdocs.adsbynimbus.com) — auto-generated documentation for the latest release.
